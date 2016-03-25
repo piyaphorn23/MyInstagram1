@@ -2,7 +2,7 @@
 //  Kumulos.h
 //  Kumulos
 //
-//  Created by Kumulos Bindings Compiler on Mar 16, 2016
+//  Created by Kumulos Bindings Compiler on Mar 25, 2016
 //  Copyright DPU All rights reserved.
 //
 
@@ -14,6 +14,8 @@
 @protocol KumulosDelegate <kumulosProxyDelegate>
 @optional
 
+ 
+- (void) kumulosAPI:(Kumulos*)kumulos apiOperation:(KSAPIOperation*)operation uploadPhotoDidCompleteWithResult:(NSNumber*)newRecordID;
  
 - (void) kumulosAPI:(Kumulos*)kumulos apiOperation:(KSAPIOperation*)operation createUserDidCompleteWithResult:(NSNumber*)newRecordID;
  
@@ -33,6 +35,9 @@
 -(Kumulos*)init;
 -(Kumulos*)initWithAPIKey:(NSString*)APIKey andSecretKey:(NSString*)secretKey;
 
+   
+-(KSAPIOperation*) uploadPhotoWithImageData:(NSData*)imageData andPostData:(NSUInteger)postData;
+    
    
 -(KSAPIOperation*) createUserWithUsername:(NSString*)username andPassword:(NSString*)password andEmail:(NSString*)email andAuthData:(NSString*)authData;
     
