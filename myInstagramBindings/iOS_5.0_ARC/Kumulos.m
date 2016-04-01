@@ -2,8 +2,7 @@
 //  Kumulos.m
 //  Kumulos
 //
-//  Created by Kumulos Bindings Compiler on Mar 25, 2016
-//  Copyright DPU All rights reserved.
+//  Created by Kumulos Bindings Compiler on Apr  1, 2016
 //
 
 #import "Kumulos.h"
@@ -15,7 +14,7 @@
     if ([super init]) {
         theAPIKey = @"b7xfww5858cwkw4y4h67yb136t38yps7";
         theSecretKey = @"6fbpyrvs";
-        useSSL = NO;
+        useSSL = YES;
     }
 
     return self;
@@ -44,6 +43,29 @@
     //we pass the method signature for the kumulosProxy callback on this thread
  
     [newOp setCallbackSelector:@selector( kumulosAPI: apiOperation: uploadPhotoDidCompleteWithResult:)];
+    [newOp setSuccessCallbackMethodSignature:[self methodSignatureForSelector:@selector(apiOperation: didCompleteWithResult:)]];
+    [newOp setErrorCallbackMethodSignature:[self methodSignatureForSelector:@selector(apiOperation: didFailWithError:)]];
+    [opQueue addOperation:newOp];
+ 
+    return newOp;
+    
+}
+
+-(KSAPIOperation*) createPostWithDescription:(NSString*)description andPostOwner:(NSUInteger)postOwner andImageData:(NSData*)imageData{
+
+    
+     NSMutableDictionary* theParams = [[NSMutableDictionary alloc]init];
+            [theParams setValue:description forKey:@"description"];
+                    [theParams setValue:[NSNumber numberWithInt:postOwner] forKey:@"postOwner"];
+                    [theParams setValue:imageData forKey:@"imageData"];
+                        
+    KSAPIOperation* newOp = [[KSAPIOperation alloc]initWithAPIKey:theAPIKey andSecretKey:theSecretKey andMethodName:@"createPost" andParams:theParams];
+    [newOp setDelegate:self];
+    [newOp setUseSSL:useSSL];
+            
+    //we pass the method signature for the kumulosProxy callback on this thread
+ 
+    [newOp setCallbackSelector:@selector( kumulosAPI: apiOperation: createPostDidCompleteWithResult:)];
     [newOp setSuccessCallbackMethodSignature:[self methodSignatureForSelector:@selector(apiOperation: didCompleteWithResult:)]];
     [newOp setErrorCallbackMethodSignature:[self methodSignatureForSelector:@selector(apiOperation: didFailWithError:)]];
     [opQueue addOperation:newOp];
@@ -142,4 +164,4 @@
     
 }
 
-@end
+@end
