@@ -11,6 +11,7 @@
 		49F52F7B1CA5231100002AC2 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F52F781CA5231100002AC2 /* PhotoViewController.swift */; };
 		49F52F7C1CA5231100002AC2 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F52F791CA5231100002AC2 /* TimelineViewController.swift */; };
 		49F52F7F1CA5241500002AC2 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F52F7E1CA5241500002AC2 /* PhotoTakingHelper.swift */; };
+		49FE55801CC8A08F00C26ABB /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FE557F1CC8A08F00C26ABB /* PostTableViewCell.swift */; };
 		9E0B09489FD64B19C08F0BC2 /* Pods_MyInstagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB61D8A3FF181E797C4FC9D /* Pods_MyInstagram.framework */; };
 		A79EB46F1C86F89E0023D01A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79EB46E1C86F89E0023D01A /* AppDelegate.swift */; };
 		A79EB4711C86F89E0023D01A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79EB4701C86F89E0023D01A /* ViewController.swift */; };
@@ -47,6 +48,7 @@
 		49F52F781CA5231100002AC2 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		49F52F791CA5231100002AC2 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		49F52F7E1CA5241500002AC2 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
+		49FE557F1CC8A08F00C26ABB /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		A79EB46B1C86F89E0023D01A /* MyInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79EB46E1C86F89E0023D01A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A79EB4701C86F89E0023D01A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				49F52F771CA5231100002AC2 /* FriendSearchViewController.swift */,
 				49F52F781CA5231100002AC2 /* PhotoViewController.swift */,
 				49F52F791CA5231100002AC2 /* TimelineViewController.swift */,
+				49FE557F1CC8A08F00C26ABB /* PostTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				49F52F7A1CA5231100002AC2 /* FriendSearchViewController.swift in Sources */,
 				A79EB4711C86F89E0023D01A /* ViewController.swift in Sources */,
 				A7BC55351C9B1E2D0055BE1C /* Kumulos.m in Sources */,
+				49FE55801CC8A08F00C26ABB /* PostTableViewCell.swift in Sources */,
 				A79EB46F1C86F89E0023D01A /* AppDelegate.swift in Sources */,
 				49F52F7F1CA5241500002AC2 /* PhotoTakingHelper.swift in Sources */,
 				49F52F7B1CA5231100002AC2 /* PhotoViewController.swift in Sources */,

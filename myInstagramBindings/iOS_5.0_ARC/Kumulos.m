@@ -2,7 +2,7 @@
 //  Kumulos.m
 //  Kumulos
 //
-//  Created by Kumulos Bindings Compiler on Apr  1, 2016
+//  Created by Kumulos Bindings Compiler on Apr 21, 2016
 //
 
 #import "Kumulos.h"
@@ -51,7 +51,7 @@
     
 }
 
--(KSAPIOperation*) createPostWithDescription:(NSString*)description andPostOwner:(NSUInteger)postOwner andImageData:(NSData*)imageData{
+-(KSAPIOperation*) createPostWithDescription:(NSString*)description andPostOwner:(NSUInteger)postOwner andImageData:(NSNumber*)imageData{
 
     
      NSMutableDictionary* theParams = [[NSMutableDictionary alloc]init];
@@ -66,6 +66,27 @@
     //we pass the method signature for the kumulosProxy callback on this thread
  
     [newOp setCallbackSelector:@selector( kumulosAPI: apiOperation: createPostDidCompleteWithResult:)];
+    [newOp setSuccessCallbackMethodSignature:[self methodSignatureForSelector:@selector(apiOperation: didCompleteWithResult:)]];
+    [newOp setErrorCallbackMethodSignature:[self methodSignatureForSelector:@selector(apiOperation: didFailWithError:)]];
+    [opQueue addOperation:newOp];
+ 
+    return newOp;
+    
+}
+
+-(KSAPIOperation*) getPostWithPostOwner:(NSUInteger)postOwner{
+
+    
+     NSMutableDictionary* theParams = [[NSMutableDictionary alloc]init];
+            [theParams setValue:[NSNumber numberWithInt:postOwner] forKey:@"postOwner"];
+                        
+    KSAPIOperation* newOp = [[KSAPIOperation alloc]initWithAPIKey:theAPIKey andSecretKey:theSecretKey andMethodName:@"getPost" andParams:theParams];
+    [newOp setDelegate:self];
+    [newOp setUseSSL:useSSL];
+            
+    //we pass the method signature for the kumulosProxy callback on this thread
+ 
+    [newOp setCallbackSelector:@selector( kumulosAPI: apiOperation: getPostDidCompleteWithResult:)];
     [newOp setSuccessCallbackMethodSignature:[self methodSignatureForSelector:@selector(apiOperation: didCompleteWithResult:)]];
     [newOp setErrorCallbackMethodSignature:[self methodSignatureForSelector:@selector(apiOperation: didFailWithError:)]];
     [opQueue addOperation:newOp];
@@ -164,4 +185,4 @@
     
 }
 
-@end
+@end
